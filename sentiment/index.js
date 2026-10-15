@@ -15,10 +15,10 @@ app.use(expressPino);
 
 // Define the sentiment analysis route
 // Task 3: create the POST /sentiment analysis
-app.post('./sentiment', async (req, res) => {
+app.post('/sentiment', async (req, res) => {
 
     // Task 4: extract the sentence parameter
-    const { sentence } = req.query.sentence;
+    const { sentence } = req.query;
 
 
     if (!sentence) {
@@ -53,7 +53,7 @@ app.post('./sentiment', async (req, res) => {
     } catch (error) {
         logger.error(`Error performing sentiment analysis: ${error}`);
         // Task 7: if there is an error, return a HTTP code of 500 and the json {'message': 'Error performing sentiment analysis'}
-            res.status(500).json({ message: 'missing' });
+            res.status(500).json({ message: 'Error performing sentiment analysis' });
 
 
     }
