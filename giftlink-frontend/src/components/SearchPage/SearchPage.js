@@ -4,13 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {urlConfig} from '../../config';
 
 function SearchPage() {
-
-    //Task 1: Define state variables for the search query, age range, and search results.
-    const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
-    const conditions = ['New', 'Like New', 'Older'];
    	const [searchQuery, setSearchQuery] = useState('');
     const [ageRange, setAgeRange] = useState(6); // Initialize with minimum value
     const [searchResults, setSearchResults] = useState([]);
+    const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
+    const conditions = ['New', 'Like New', 'Older'];
 
     useEffect(() => {
         // fetch all products
@@ -104,17 +102,15 @@ function SearchPage() {
                                 />
                         </div>
                     </div>
-                    {/* Task 7: Add text input field for search criteria*/}
-                    <div className="d-flex flex-column">
-                            	{/* input field for search criteria */}
-                                <label htmlFor="searchQuery">Search</label>
-                                <input id="searchQuery" className="form-control my-1"
-                                    
-                                    type="text"
-                                    />
-                    </div>                    
+                    <input
+                        type="text"
+                        className="form-control mb-2"
+                        placeholder="Search for items..."
+                        value={searchQuery}
+                        onChange={e => setSearchQuery(e.target.value)}
+                    />      
                     {/* Task 8: Implement search button with onClick event to trigger search:*/}
-                    <button onClick={handleSearch} > Search </button>
+                    <button className="btn btn-primary" onClick={handleSearch}>Search</button>
                     <div className="search-results mt-4">
                         {searchResults.length > 0 ? (
                         searchResults.map(product => (
