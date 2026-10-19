@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './DetailsPage.css';
-import {urlConfig} from '../../config';
+//import {urlConfig} from '../../config';
 
 function DetailsPage() {
     const navigate = useNavigate();
@@ -20,7 +20,6 @@ function DetailsPage() {
         // get the gift to be rendered on the details page
         const fetchGift = async () => {
             try {
-				// Task 2: Fetch gift details
                 const url = '${urlConfig.backendUrl}/api/gifts/${productId}';
                 const response = await fetch(url);
                 if (!response.ok) {
@@ -94,7 +93,6 @@ return (
                             <div className="no-image-available-large">No Image Available</div>
                         )}
                     </div>
-                    // Task 6: Display gift details
                     	<p><strong>Category:</strong> 
 				{gift.category}
 			</p>
@@ -114,7 +112,6 @@ return (
             </div>
             <div className="comments-section mt-4">
                 <h3 className="mb-3">Comments</h3>
-				// Task 7: Render comments section by using the map function to go through all the comments
 				{ comments.map((comment, index) => (
                     <div key={index} className="card mb-3">
                         <div className="card-body">
