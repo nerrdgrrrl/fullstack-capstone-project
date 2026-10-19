@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './RegisterPage.css';
 import {urlConfig} from '../../config';
-import {useAppContext} from '../AuthContext.js';
+import {useAppContext} from '../../context/AuthContext.js';
 import {useNavigate} from 'react-router-dom';
 
 function RegisterPage() {
